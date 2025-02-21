@@ -26,12 +26,12 @@
             max-width: 400px; /* Optimal width for mobile */
         }
         h1 {
-            color: #333;
+            color: #0033FF; /* Vibrant blue */
             font-size: 1.8rem;
             margin-bottom: 15px;
         }
         h2 {
-            color: #28a745;
+            color: #0033FF; /* Vibrant blue */
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
@@ -115,6 +115,20 @@
             background-color: #f9f9f9;
             border-radius: 5px;
         }
+        .share-button {
+            background-color: #0077b5; /* LinkedIn blue */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 0;
+            width: 100%;
+        }
+        .share-button:hover {
+            background-color: #005582; /* Darker LinkedIn blue */
+        }
     </style>
 </head>
 <body>
@@ -152,6 +166,8 @@
             <div class="credit">
                 Page developed by <a href="https://www.linkedin.com/in/abhinavkrishnnacs/" target="_blank">Abhinav Krishna</a>.
             </div>
+            <!-- Share to LinkedIn Button -->
+            <button class="share-button" onclick="shareOnLinkedIn()">Share on LinkedIn</button>
         </div>
     </div>
 
@@ -199,6 +215,23 @@
                 confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
                 confettiContainer.appendChild(confetti);
             }
+        }
+
+        function shareOnLinkedIn() {
+            const postContent = `🎉 Digital Conclave 2025 has been successfully inaugurated! 🚀
+            A huge shoutout to our sponsors:
+            - @Brain Cyber Solutions
+            - @Photo Want
+            - @Sunday Charcha
+            Special thanks to the visionary @Abdul Latheef and the driving force @Syam KS.
+            Page developed by @Abhinav Krishna.
+            #DigitalConclave2025 #CommunityEvent #DigitalMarketing`;
+
+            const imageUrl = "https://yourdomain.com/src/after.jpg"; // Replace with your actual image URL
+            const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(imageUrl)}&summary=${encodeURIComponent(postContent)}`;
+
+            // Open LinkedIn Share Dialog
+            window.open(shareUrl, "_blank");
         }
     </script>
 </body>
