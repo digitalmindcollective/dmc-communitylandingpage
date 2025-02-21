@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Conclave 2025 Inauguration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            max-width: 800px;
+            width: 90%;
+        }
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #28a745;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin: 10px 0;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff0;
+            animation: confetti-fall 5s linear infinite;
+        }
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+        .partners {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        .partners strong {
+            color: #333;
+        }
+        .partners a {
+            color: #28a745;
+            text-decoration: none;
+        }
+        .partners a:hover {
+            text-decoration: underline;
+        }
+        .credit {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #777;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            input[type="text"] {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Before Inauguration -->
+        <div id="beforeInauguration">
+            <h1>You are Invited to Inaugurate Digital Conclave 2025!</h1>
+            <p>This is a <strong>community-driven event</strong>, where the strength of our collective efforts shines brightest. Together, we can achieve greatness.</p>
+            <div class="image-container">
+                <img src="images/before.jpg" alt="Before Inauguration">
+            </div>
+            <input type="text" id="nameInput" placeholder="Enter your name">
+            <button onclick="inaugurateEvent()">Inaugurate the Event</button>
+        </div>
+
+        <!-- After Inauguration -->
+        <div id="afterInauguration" style="display: none;">
+            <h2>Digital Conclave Inaugurated by <span id="inauguratedName"></span></h2>
+            <div class="image-container">
+                <img src="images/after.jpg" alt="After Inauguration">
+            </div>
+            <div class="message" id="message">The event has been successfully inaugurated!</div>
+            <div class="partners">
+                <p><strong>Organised by:</strong> <a href="https://www.linkedin.com/company/brain-cyber-solutions/" target="_blank">Brain Cyber Solutions</a> & <a href="https://www.linkedin.com/company/photo-want/" target="_blank">Photo Want</a></p>
+                <p><strong>Coordinated by:</strong> DigiHub, Digital Bytes, She Leads</p>
+                <p><strong>Proud Volunteers:</strong></p>
+                <p>Nibu, Shafna, Alfik PS, Nedish, Jaison, Anas, Shabana, Aravind, Anagha Chandran, Vishnu, Abhijith, Abhinav, Sourav Dev, Joji, Sujith, Hassan Rawther, Dr. Nizamudeen, Esha</p>
+                <p><strong>Visionary Behind:</strong> Abdul Latheef</p>
+                <p><strong>Driving Force:</strong> Syam KS</p>
+                <p><strong>Speakers You Don’t Want to Miss:</strong></p>
+                <p>🚀 <strong>Pradeep Nair</strong> (RedFM, Sun Network) – Insights from the media and marketing world.</p>
+                <p>🚀 <strong>Brand Swamy</strong> (Branding Expert) – Mastering the art of branding and positioning.</p>
+                <p>🚀 <strong>Hemanth Kumar G</strong> (COO, NdimensionZ) – Growth strategies in the digital space.</p>
+            </div>
+            <div class="credit">
+                Page done by <a href="https://www.linkedin.com/in/abhinavkrishnnacs/" target="_blank">Abhinav Krishna</a>.
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti Animation -->
+    <div id="confetti-container" style="display: none;">
+        <!-- Confetti elements will be generated here -->
+    </div>
+
+    <!-- Audio for Celebration -->
+    <audio id="celebrationMusic" src="sounds/applause.mp3" preload="auto"></audio>
+
+    <script>
+        function inaugurateEvent() {
+            const name = document.getElementById('nameInput').value;
+            if (name) {
+                // Hide Before Inauguration Section
+                document.getElementById('beforeInauguration').style.display = 'none';
+
+                // Show After Inauguration Section
+                document.getElementById('afterInauguration').style.display = 'block';
+
+                // Display Inaugurated By Name
+                document.getElementById('inauguratedName').textContent = name;
+
+                // Show Confetti
+                showConfetti();
+
+                // Play Celebration Music
+                const audio = document.getElementById('celebrationMusic');
+                audio.play();
+            } else {
+                alert('Please enter your name.');
+            }
+        }
+
+        function showConfetti() {
+            const confettiContainer = document.getElementById('confetti-container');
+            confettiContainer.style.display = 'block';
+
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confettiContainer.appendChild(confetti);
+            }
+        }
+    </script>
+</body>
+</html>
