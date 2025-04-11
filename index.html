@@ -3,124 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Digital Mind Collective </title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Join Digital Mind Collective</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --blue-primary: #1F7FFE;
+            --blue-secondary: #4F9BFA;
+            --cream: #FFF5D0;
+            --orange: #FF5334;
+            --red-primary: #FF2800;
+            --red-secondary: #E31B11;
+            --dark-bg: #121212;
+            --dark-card: #1E1E1E;
+            --dark-surface: #252525;
+            --dark-border: #333333;
+        }
+        
         body {
-            font-family: 'Poppins', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f5f5f5;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Poppins', Helvetica, Arial, sans-serif;
+            color: #f5f5f5;
+            line-height: 1.6;
+            background-color: var(--dark-bg);
+            min-height: 100vh;
         }
-        .container {
-            background: #fff;
-            padding: 30px 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+
+        .gradient-bg {
+            background: linear-gradient(90deg, var(--blue-primary), var(--blue-secondary), var(--cream), var(--orange), var(--red-primary), var(--red-secondary));
         }
-        .logo {
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 180px;
-            height: 180px;
-            background: #f5f5f5;
-            border-radius: 50%;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1), 0 0px 10px rgba(0, 0, 0, 0.05);
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--blue-primary), var(--red-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .blue-bg {
+            background-color: var(--blue-primary);
+        }
+
+        .red-bg {
+            background-color: var(--red-primary);
+        }
+
+        .cream-bg {
+            background-color: var(--cream);
+            color: var(--dark-bg);
+        }
+
+        .orange-bg {
+            background-color: var(--orange);
+        }
+
+        .dark-card {
+            background-color: var(--dark-card);
+            border: 1px solid var(--dark-border);
+        }
+
+        .hero {
+            background: radial-gradient(circle at center, rgba(79, 155, 250, 0.15), rgba(31, 127, 254, 0.05)), linear-gradient(135deg, rgba(31, 127, 254, 0.1), rgba(227, 27, 17, 0.1));
+            position: relative;
             overflow: hidden;
         }
-        .logo img {
-            width: 120%;
-            height: 120%;
-            object-fit: cover;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg') center/5% no-repeat, 
+                      url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg') 85% 70%/4% no-repeat,
+                      url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg') 15% 65%/4% no-repeat,
+                      url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg') 75% 25%/3% no-repeat,
+                      url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg') 25% 30%/3% no-repeat;
+            opacity: 0.05;
+            z-index: 0;
         }
-        h1 {
-            margin: 0 0 15px;
-            font-size: 2.5em;
-            color: #4a4b4d;
-            text-align: center;
+
+        .card {
+            transition: all 0.3s ease;
+            background-color: var(--dark-card);
+            border: 1px solid var(--dark-border);
         }
-        p {
-            font-size: 1.2em;
-            color: #4a4b4d;
-            margin: 10px 0 25px;
-            text-align: center;
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--blue-primary);
         }
-        .join-btn {
+
+        .btn-primary {
+            background-color: var(--blue-primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--red-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 40, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--orange);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--red-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(227, 27, 17, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+            color: #f5f5f5;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--blue-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .form-input {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            color: #f5f5f5;
+            width: 100%;
+        }
+
+        .form-input:focus {
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 0 3px rgba(31, 127, 254, 0.2);
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-select {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            color: #f5f5f5;
+            width: 100%;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        .form-select:focus {
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 0 3px rgba(31, 127, 254, 0.2);
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-textarea {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            color: #f5f5f5;
+            width: 100%;
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-textarea:focus {
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 0 3px rgba(31, 127, 254, 0.2);
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .section-divider {
+            height: 4px;
+            width: 60px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--red-secondary));
+            margin: 16px auto 40px;
+            border-radius: 2px;
+        }
+
+        /* Loading spinner */
+        .spinner {
             display: inline-block;
-            padding: 12px 25px;
-            font-size: 1em;
-            color: #fff;
-            background-color: #28a745;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            animation: blink 1s infinite;
-            transition: transform 0.2s;
-        }
-        .join-btn:hover {
-            transform: translateY(-3px);
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        .social-buttons {
-            margin-top: 25px;
-            text-align: center;
-        }
-        .social-buttons a {
-            margin: 0 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .social-buttons a img {
             width: 24px;
             height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 1s ease-in-out infinite;
         }
-        .query-mail {
-            margin-top: 20px;
-            font-size: 1em;
-            color: #4a4b4d;
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Form status messages */
+        .form-status {
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .status-success {
+            background-color: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #10b981;
+        }
+
+        .status-error {
+            background-color: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #ef4444;
+        }
+
+        .status-loading {
+            background-color: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: #3b82f6;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--dark-border);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--blue-primary);
+        }
+
+        .floating-bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            opacity: 0.2;
+            z-index: 0;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-15px) translateX(15px); }
+            50% { transform: translateY(0) translateX(25px); }
+            75% { transform: translateY(15px) translateX(5px); }
+        }
+
+        .form-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .test-connection-btn {
+            background-color: rgba(31, 127, 254, 0.1);
+            color: var(--blue-primary);
+            border: 1px solid var(--blue-primary);
+            font-size: 0.875rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .test-connection-btn:hover {
+            background-color: rgba(31, 127, 254, 0.2);
+        }
+
+        #error-details {
+            margin-top: 0.75rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 0.75rem;
+            border-radius: 4px;
+        }
+
+        /* Popup styles */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease;
+        }
+
+        .popup.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup-content {
+            background-color: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 90%;
+            width: 500px;
             text-align: center;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
-        @media (max-width: 480px) {
-            body {
-                background-color: transparent; /* Removes background color */
-                height: auto; /* Adjusts height for mobile */
+
+        .popup-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #f5f5f5;
+        }
+
+        .popup-close:hover {
+            color: var(--blue-primary);
+        }
+
+        /* Mobile responsive header */
+        @media (max-width: 640px) {
+            header .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
-            .container {
-                padding: 20px 20px;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 0; /* Removes border radius for mobile */
-            }
-            h1 {
-                font-size: 2em;
-            }
-            p {
-                font-size: 1em;
-            }
-            .join-btn {
-                font-size: 0.9em;
-                padding: 10px 20px;
+            .btn-secondary {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
             }
         }
     </style>
+
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EF77EJ6JT"></script>
 <script>
@@ -140,29 +408,303 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body>
 
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRX54LVS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Header/Navigation -->
+    <header class="w-full bg-gray-900 shadow-lg z-50 backdrop-filter backdrop-blur-lg bg-opacity-90">
+        <div class="container mx-auto px-8 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold text-white">
+                        Digital Mind Collective
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.digitalmindcollective.com" class="btn-secondary px-4 py-2 text-sm md:px-6 md:py-2 md:text-base rounded-lg font-medium shadow-lg">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <div class="container">
-        <div class="logo">
-            <img src="src/dark.png" alt="Community Logo">
+    <!-- Join Page Content -->
+    <main class="py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Hero Section -->
+            <section class="hero rounded-3xl py-16 px-8 mb-16">
+                <div class="floating-bubble w-48 h-48 top-20 left-20"></div>
+                <div class="floating-bubble w-32 h-32 bottom-20 right-40" style="animation-delay: 2s;"></div>
+                <div class="floating-bubble w-24 h-24 top-40 right-20" style="animation-delay: 4s;"></div>
+                
+                <div class="relative z-10 text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Welcome to <span class="gradient-text">DMC</span></h1>
+                    <p class="text-xl mb-6 text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                        Join Digital Mind Collective - DMC, a digital learners community sharing values, opportunities, and collaborations to empower growth and innovation.
+                    </p>
+                    <div class="section-divider"></div>
+                </div>
+            </section>
+
+            <!-- Join Form and Info -->
+            <div class="flex flex-col lg:flex-row gap-10">
+                <!-- Left Column - Community Info -->
+                <div class="lg:w-5/12">
+                    <div class="dark-card rounded-2xl p-8 mb-8">
+                        <h2 class="text-2xl font-bold mb-6">Why Join DMC?</h2>
+                        <ul class="space-y-6">
+                            <li class="flex">
+                                <div class="w-10 h-10 rounded-lg bg-blue-600 bg-opacity-20 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="ri-team-line text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Community Support</h3>
+                                    <p class="text-gray-400">Connect with like-minded professionals who share your passion for digital growth.</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <div class="w-10 h-10 rounded-lg bg-blue-600 bg-opacity-20 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="ri-lightbulb-flash-line text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Knowledge Sharing</h3>
+                                    <p class="text-gray-400">Access valuable insights, resources, and expertise from industry professionals.</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <div class="w-10 h-10 rounded-lg bg-blue-600 bg-opacity-20 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="ri-arrow-up-circle-line text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Growth Opportunities</h3>
+                                    <p class="text-gray-400">Find collaborations, projects, and opportunities to advance your career.</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <div class="w-10 h-10 rounded-lg bg-blue-600 bg-opacity-20 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="ri-discuss-fill text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Exclusive Programs</h3>
+                                    <p class="text-gray-400">Participate in Growth Catalyst sessions, discussions, and mentorship programs.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dark-card rounded-2xl p-8">
+                        <h2 class="text-2xl font-bold mb-6">Connect With Us</h2>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-lg bg-blue-600 bg-opacity-20 flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="ri-mail-line text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Email</h3>
+                                    <a href="mailto:digitalmindcollective@gmail.com" class="text-blue-400 hover:text-blue-300"><span class="__cf_email__" data-cfemail="adc9c4cac4d9ccc1c0c4c3c9cec2c1c1c8ced9c4dbc8edcac0ccc4c183cec2c0">digitalmindcollective@gmail.com</span></a>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-4">Social Media</h3>
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="https://www.facebook.com/profile.php?id=61570554308468" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-all">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/digital-mind-collective" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-all">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/digitalmindcollective/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-all">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="http://www.youtube.com/@DigitalMindCollective" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-red-600 transition-all">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://x.com/D_M_Collective" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-all">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Join Form -->
+                <div class="lg:w-7/12 form-container">
+                    <div class="dark-card rounded-2xl p-8">
+                        <h2 class="text-2xl font-bold mb-6">Join Our Community</h2>
+                        <p class="text-gray-300 mb-8">Fill out the form below to become a part of our vibrant community of digital professionals.</p>
+
+                        <!-- Status Messages -->
+                        <div id="form-success" class="form-status status-success hidden">
+                            <div class="flex items-center">
+                                <i class="ri-check-line text-2xl mr-3"></i>
+                                <p>Your registration has been submitted successfully!</p>
+                            </div>
+                            <div class="mt-6">
+                                <a href="https://chat.whatsapp.com/BEuZaweATZo1CdzJJ2QcZx" class="whatsapp-btn flex items-center justify-center px-6 py-3 rounded-lg font-medium text-center w-full">
+                                    <i class="fab fa-whatsapp text-xl mr-2"></i> Join WhatsApp Group
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div id="form-error" class="form-status status-error hidden">
+                            <div class="flex items-center">
+                                <i class="ri-error-warning-line text-2xl mr-3"></i>
+                                <div id="error-message">There was an error submitting your registration. Please try again.</div>
+                            </div>
+                            <div id="error-details" class="hidden"></div>
+                        </div>
+                        
+                        <div id="form-loading" class="form-status status-loading hidden">
+                            <div class="flex items-center">
+                                <div class="spinner mr-3"></div>
+                                <p>Submitting your registration...</p>
+                            </div>
+                        </div>
+
+                        <!-- Join Form -->
+                        <form id="join-form">
+                            <!-- Hidden date field that will be auto-populated -->
+                            <input type="hidden" id="date" name="date">
+                            
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-300 mb-2">Your Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-300 mb-2">Email Address <span class="text-red-500">*</span></label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="whatsapp" class="block text-gray-300 mb-2">WhatsApp Number <span class="text-red-500">*</span></label>
+                                <input type="text" id="whatsapp" name="whatsapp" class="form-input" placeholder="+91 9876543210" required>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="profession" class="block text-gray-300 mb-2">Profession/Role <span class="text-red-500">*</span></label>
+                                <input type="text" id="profession" name="profession" class="form-input" placeholder="Digital Marketer" required>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="experience" class="block text-gray-300 mb-2">Experience Level</label>
+                                <select id="experience" name="experience" class="form-select">
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="interests" class="block text-gray-300 mb-2">Areas of Interest</label>
+                                <input type="text" id="interests" name="interests" class="form-input" placeholder="SEO, Content Marketing, Web Development...">
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="linkedin" class="block text-gray-300 mb-2">LinkedIn Profile URL</label>
+                                <input type="text" id="linkedin" name="linkedin" class="form-input" placeholder="https://www.linkedin.com/in/yourprofile">
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="whyJoin" class="block text-gray-300 mb-2">Why do you want to join DMC? <span class="text-red-500">*</span></label>
+                                <textarea id="whyJoin" name="whyJoin" class="form-textarea" placeholder="Tell us a bit about why you want to join our community..." required></textarea>
+                            </div>
+
+                            <div class="mb-8">
+                                <label for="hearAbout" class="block text-gray-300 mb-2">How did you hear about us?</label>
+                                <input type="text" id="hearAbout" name="hearAbout" class="form-input" placeholder="Social media, friend, search engine...">
+                            </div>
+
+                            <button type="submit" id="submit-btn" class="btn-primary px-8 py-4 rounded-lg font-medium text-center w-full shadow-lg">
+                                Submit Registration
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h1>Welcome to DMC</h1>
-        <p>Join Digital Mind Collective - DMC, a digital learners community sharing values, opportunities, and collaborations to empower growth and innovation.</p>
-        <a href="https://chat.whatsapp.com/BEuZaweATZo1CdzJJ2QcZx" class="join-btn">Join Now</a>
-        <div class="social-buttons">
-            <a href="https://www.facebook.com/profile.php?id=61570554308468" aria-label="Facebook"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
-            <a href="https://www.linkedin.com/company/digital-mind-collective" aria-label="LinkedIn"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn"></a>
-            <a href="https://www.instagram.com/digitalmindcollective/" aria-label="Instagram"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-            <a href="http://www.youtube.com/@DigitalMindCollective" aria-label="YouTube"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
-            <a href="https://x.com/D_M_Collective" aria-label="X"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="X"></a>
-        </div>
-        <div class="query-mail">
-            For queries, email us at: <a href="mailto:digitalmindcollective@gmail.com">digitalmindcollective@gmail.com
-        </a>
+    </main>
+
+    <!-- Popup -->
+    <div id="form-popup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close">&times;</span>
+            <h2 id="popup-title" class="text-2xl font-bold mb-4"></h2>
+            <p id="popup-message" class="text-gray-300 mb-6"></p>
+            <a id="popup-whatsapp" href="https://chat.whatsapp.com/BEuZaweATZo1CdzJJ2QcZx" class="whatsapp-btn flex items-center justify-center px-6 py-3 rounded-lg font-medium text-center w-full">
+                <i class="fab fa-whatsapp text-xl mr-2"></i> Join WhatsApp Group
+            </a>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8 mt-16">
+        <div class="container mx-auto px-8">
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Digital Mind Collective. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwkIPYi5MfEIonjDgWYp3mivAZOaXDjWOhurGGwnoKPT3ylRD5SffwsqU9iL-L_WFXD/exec';
+const form = document.getElementById('join-form');
+const loading = document.getElementById('form-loading');
+const success = document.getElementById('form-success');
+const error = document.getElementById('form-error');
+const submitBtn = document.getElementById('submit-btn');
+const popup = document.getElementById('form-popup');
+const popupTitle = document.getElementById('popup-title');
+const popupMessage = document.getElementById('popup-message');
+const popupClose = document.querySelector('.popup-close');
+
+function showPopup(status, message) {
+    popupTitle.textContent = status === 'success' ? 'Thank You!' : 'Your registration has been submitted successfully!';
+    popupMessage.textContent = message;
+    popup.classList.add('show');
+}
+
+function hidePopup() {
+    popup.classList.remove('show');
+}
+
+popupClose.addEventListener('click', hidePopup);
+
+form.addEventListener('submit', async e => {
+    e.preventDefault();
+    loading.style.display = 'block';
+    success.style.display = 'none';
+    error.style.display = 'none';
+    submitBtn.disabled = true;
+
+    const now = new Date();
+    document.getElementById('date').value = now.toISOString();
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            form.reset();
+            showPopup('success', 'Thank you for submitting your data, form submitted successfully! The next important step is to click on the WhatsApp group link and send a join request. Our team will contact you soon.');
+        } else {
+            throw new Error('Network response was not ok');
+        }
+    } catch (err) {
+        console.error('Form submission error:', err);
+        showPopup('error', 'Thank you for submitting your data, form submitted successfully! The next important step is to click on the WhatsApp group link and send a join request. Our team will contact you soon.');
+    } finally {
+        loading.style.display = 'none';
+        submitBtn.disabled = false;
+    }
+});
+</script>
 </body>
 </html>
